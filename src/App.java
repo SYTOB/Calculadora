@@ -1,26 +1,31 @@
+import java.lang.reflect.Method;
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Scanner;
 
-public class App {
-    public static void main(String[] args) throws Exception {
+public class App{
+    public static void main(String[] args) throws InstantiationException, IllegalAccessException, 
+    ClassNotFoundException, NoSuchMethodException, InvocationTargetException {
 
-        Numero num1 = new Numero();
-        Numero num2 = new Numero();
-        Numero op = new Numero();
-
+        String operacao;
+        double num1,num2;
+        
         Scanner scan = new Scanner(System.in);
 
-        Operacao method = new Operacao();
         System.out.println("Calculadora!");
-        System.out.println("Forma de Input");
-        System.out.println("Primeiro número > Operação > Segundo número");
-        num1.setValor(scan.nextDouble()); 
-        op.setValorOp(scan.next()); 
-        num2.setValor(scan.nextDouble()); 
+        System.out.println("Informe o primeiro número: ");
+        num1 = scan.nextDouble(); 
 
+        System.out.println("Escolha(digite) uma das operações [Somar - Subtrair - Multiplicar - Dividir]");
+        operacao = scan.next(); 
 
-        System.out.println("Resultado: "+method.operacao(op.getValorOp(),num1.getValor(),num2.getValor()));
+        System.out.println("Informe o segundo número: ");
+        num2 = scan.nextDouble(); 
         
         scan.close();
 
-    }
+        Object classInstance = Class.forName(operacao).getDeclaredConstructor().newInstance();
+
+        Method operation = Class.forName(operacao).getDeclaredMethod("resultado", new Class[] {Double.class, Double.class}); operation.invoke(classInstance, num1, num2);
+    }    
 }
