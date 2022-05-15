@@ -23,14 +23,6 @@ public class App {
         num2 = scan.nextDouble();
         scan.close();
 
-        executar(operacao, num1, num2);
-
-    }
-
-    private static void executar(String operacao, Double num1, Double num2)
-            throws InstantiationException, IllegalAccessException,
-            ClassNotFoundException, NoSuchMethodException, InvocationTargetException {
-
         Object classInstance = Class.forName(operacao).getDeclaredConstructor().newInstance();
 
         Method execute = Class.forName(operacao).getDeclaredMethod(
