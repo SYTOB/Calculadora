@@ -1,4 +1,4 @@
-public class Multiplicar implements Operacao {
+public class Multiplicar implements Metodo {
 
     @Override
     public void resultado(Double num1, Double num2){

@@ -1,4 +1,4 @@
-public class Dividir implements Operacao {
+public class Dividir implements Metodo {
 
     @Override
     public void resultado(Double num1, Double num2){

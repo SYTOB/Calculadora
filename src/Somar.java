@@ -1,5 +1,5 @@
 
-public class Somar implements Operacao {
+public class Somar implements Metodo {
 
     @Override
     public void resultado(Double num1, Double num2){

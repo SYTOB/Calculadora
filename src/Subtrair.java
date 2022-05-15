@@ -1,4 +1,4 @@
-public class Subtrair implements Operacao {
+public class Subtrair implements Metodo {
 
     @Override
     public void resultado(Double num1, Double num2){
